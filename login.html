@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #login-button,
+        #phone-login-button {
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #login-button:hover,
+        #phone-login-button:hover {
+            background-color: #3b79db;
+        }
+    </style>
+</head>
+<body>
+
+<div id="login-container">
+    <h2>Login to Your Account</h2>
+    <form>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button id="login-button" type="submit">Login</button>
+    </form>
+    <p>or</p>
+    <!-- Include a div for reCAPTCHA -->
+    <div id="recaptcha-container"></div>
+    <button id="phone-login-button" onclick="initiatePhoneLogin()">Login with Phone Number</button>
+</div>
+
+<script>
+    // Your Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyB53YResOhojOSRKLiq5CEJeBtYJTD7ZvU",
+  authDomain: "my-project-1701868946111.firebaseapp.com",
+  projectId: "my-project-1701868946111",
+  storageBucket: "my-project-1701868946111.appspot.com",
+  messagingSenderId: "166411592261",
+  appId: "1:166411592261:web:e5e793c59b77170d71b92c",
+  measurementId: "G-LE3ZV5QGQB"
+};
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    function initiatePhoneLogin() {
+        // Replace 'recaptcha-container' with the ID of your Recaptcha container element
+        var recaptchaContainer = document.getElementById('recaptcha-container');
+        var applicationVerifier = new firebase.auth.RecaptchaVerifier(recaptchaContainer);
+
+        // Replace '+123456789' with the phone number and 'US' with the country code
+        var phoneNumber = '+123456789';
+        var appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+        firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+            .then(function (confirmationResult) {
+                // SMS sent. Prompt user to type the code from the message
+                var code = prompt('Enter the verification code:', '');
+                return confirmationResult.confirm(code);
+            })
+            .then(function (result) {
+                // User signed in successfully
+                console.log(result.user);
+            })
+            .catch(function (error) {
+                // Handle errors
+                console.error(error);
+            });
+    }
+</script>
+
+</body>
+</html>
