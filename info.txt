@@ -1,0 +1,15 @@
+166411592261-0ib8easlaicttnpojv9j26iqfhmfap1c.apps.googleusercontent.com
+
+AIzaSyDdM2aZ5KODmIxs0szJXsn8zidO4vRLO_g
+
+6LfcbSgpAAAAALPYQBPLqgJFei3vc1Grf-rz5QZL
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB53YResOhojOSRKLiq5CEJeBtYJTD7ZvU",
+  authDomain: "my-project-1701868946111.firebaseapp.com",
+  projectId: "my-project-1701868946111",
+  storageBucket: "my-project-1701868946111.appspot.com",
+  messagingSenderId: "166411592261",
+  appId: "1:166411592261:web:e5e793c59b77170d71b92c",
+  measurementId: "G-LE3ZV5QGQB"
+};
