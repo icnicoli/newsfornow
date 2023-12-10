@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,26 +26,26 @@
     padding: 10px;
     text-align: center;
     position: relative;
-    background-image: url('bgggg.jpg'); /* Replace 'your-image-url.jpg' with the actual path to your image */
-    background-size: cover; /* Make the image cover the entire header */
-    background-position: center; /* Center the background image */
-    backdrop-filter: blur(10px); /* Add a blur effect to the background */
-    margin: 0; /* Remove default margin to ensure the background covers the entire viewport */
+    background-image: url('bgggg.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    backdrop-filter: blur(10px);
+    margin: 0; 
 }
 
 h1 {
-    position: relative; /* Ensure the text is on top of the background image */
-    z-index: 1; /* Ensure the text is on top of the background image */
+    position: relative; 
+    z-index: 1; 
 }
 
         nav {
         background-color: #444;
         overflow: hidden;
-        text-align: center; /* Center the text in the navbar */
+        text-align: center; 
     }
 
     nav a {
-        display: inline-block; /* Change to inline-block to center horizontally */
+        display: inline-block;
         color: #fff;
         text-align: center;
         padding: 14px 16px;
@@ -315,7 +314,7 @@ h1 {
 
     if (isset($data['rates'])) {
         echo '<h2>Exchange Rates</h2>';
-        echo '<button id="refresh-button" onclick="refreshExchangeRates()">Refresh Rates</button>'; // Added refresh button here
+        echo '<button id="refresh-button" onclick="refreshExchangeRates()">Refresh Rates</button>'; 
         echo '<div id="exchange-rates-table-container">';
         echo '<table id="exchange-rates-table">';
         echo '<thead>';
