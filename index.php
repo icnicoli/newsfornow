@@ -269,7 +269,7 @@ h1 {
                 player = new YT.Player('player', {
                     height: '390',
                     width: '640',
-                    videoId: 'uZb7we7O8hk',
+                    videoId: 'uZb7we7O8hk',  ///YT API
                     playerVars: {
                         'playsinline': 1
                     },
@@ -300,7 +300,7 @@ h1 {
 <div id="exchange-rates-container">
     <?php
 
-    $accessKey = "https://v6.exchangerate-api.com/v6/d55044ff2806c0a91014ef47/latest/USD";
+    $accessKey = "https://v6.exchangerate-api.com/v6/d55044ff2806c0a91014ef47/latest/USD"; //API
     $baseCurrency = "USD";
     $apiUrl = "https://open.er-api.com/v6/latest/{$baseCurrency}";
 
